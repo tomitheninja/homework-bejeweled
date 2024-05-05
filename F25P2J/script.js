@@ -1,21 +1,19 @@
 // @ts-check
 
-const backgroundSound = new Audio("background.mp3");
-backgroundSound.preload = "auto";
+const backgroundSound = new Audio('background.mp3');
+backgroundSound.preload = 'auto';
 backgroundSound.loop = true;
 backgroundSound.volume = 0.1;
 backgroundSound.load();
 
 document.body.onmousedown = () => {
   backgroundSound.play();
-}
+};
 
-
-const actionSound = new Audio("breaking.mp3");
-actionSound.preload = "auto";
+const actionSound = new Audio('breaking.mp3');
+actionSound.preload = 'auto';
 actionSound.volume = 1;
 actionSound.load();
-
 
 const RED = 'red';
 const GREEN = 'green';
@@ -398,7 +396,7 @@ if (!grid) throw new Error('Game grid not found');
 const state = new GameState(grid);
 state.render();
 setInterval(() => {
-  backgroundSound.volume = 0.1 + state.score / 200;
+  backgroundSound.volume = Math.min(1, 0.05 + state.score / 500);
   if (state.time === 0) return;
   const mins = Math.floor(state.time / 60);
   let secs = Math.floor(state.time % 60) + '';
@@ -415,5 +413,3 @@ setInterval(() => {
     window.location.href = 'scoreboard.html';
   }
 }, 100);
-
-
