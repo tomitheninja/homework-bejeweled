@@ -9,7 +9,7 @@ window.addEventListener('load', (event) => {
     const CLASSLIST = 'px-4 py-3 font-medium text-gray-900 dark:text-gray-50';
     row.innerHTML += `<td class="${CLASSLIST}">${i + 1}</td>`;
     const time = new Date(scores[i].date);
-    row.innerHTML += `<td class="${CLASSLIST}">${time.toLocaleDateString() + ' ' + time.toLocaleDateString()}</td>`;
+    row.innerHTML += `<td class="${CLASSLIST}">${time.toLocaleDateString() + ' ' + time.toLocaleTimeString()}</td>`;
     row.innerHTML += `<td class="${CLASSLIST}">${scores[i].score}</td>`;
     parent.appendChild(row);
   }
