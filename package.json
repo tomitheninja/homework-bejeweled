@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "zip -r F25P2J-$(date +%s).zip F25P2J",
+    "format": "npx prettier --write ./F25P2J",
     "clean": "rm F25P2J-*.zip",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
