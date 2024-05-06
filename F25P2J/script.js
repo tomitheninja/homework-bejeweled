@@ -10,11 +10,6 @@ document.body.onmousedown = () => {
   backgroundSound.play();
 };
 
-const actionSound = new Audio('breaking.mp3');
-actionSound.preload = 'auto';
-actionSound.volume = 1;
-actionSound.load();
-
 const RED = 'red';
 const GREEN = 'green';
 const BLUE = 'blue';
@@ -203,6 +198,10 @@ class GameState {
     if (this.time === 0) return;
     const groups = this.findGroups();
     if (groups.length === 0) return false;
+    const actionSound = new Audio('breaking.mp3');
+    actionSound.preload = 'auto';
+    actionSound.volume = 1;
+    actionSound.load();
     actionSound.play();
     this.score +=
       groups.length * groups.map((g) => 2 ** g.length).reduce((a, b) => a + b);
